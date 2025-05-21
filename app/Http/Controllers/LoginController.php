@@ -36,6 +36,8 @@ class LoginController extends Controller
         if (!password_verify($request->password, $user->password)) {
             return back()->withErrors(['password' => 'Contraseña incorrecta']);
         }
+
+
         Auth::login($user);
         
       
@@ -45,7 +47,13 @@ class LoginController extends Controller
     }
 
 
-
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login');
+    }
 
 }
 
