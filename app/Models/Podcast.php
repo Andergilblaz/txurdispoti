@@ -19,6 +19,6 @@ class Podcast extends Model
 
      public function users() 
      {
-       return $this->belongsToMany(User::class, 'podcast_user');
+       return $this->belongsToMany(User::class, 'podcast_users');
     }
 }

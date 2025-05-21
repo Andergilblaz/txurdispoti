@@ -59,7 +59,7 @@ class User extends Authenticatable
 
     public function podcasts()
     {
-        return $this->belongsToMany(Podcast::class, 'podcast_user');
+        return $this->belongsToMany(Podcast::class, 'podcast_users');
     }
 
 }
